@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In and Sign Up Form</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEJ6b+Hlf8L6wG3T2YFYKSuV5WX42zqjpRhoO0mYYyk4iTZg3IOVe1UzBkxVf" crossorigin="anonymous">
+  <!-- Bootstrap Icons CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.min.css" rel="stylesheet">
+  <style>
+    /* Global Styles */
+    body {
+      background-color: #121212;
+      color: #e0e0e0;
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .card {
+      border-radius: 15px;
+      background-color: #1e1e1e;
+      border: none;
+      width: 100%;
+      max-width: 400px; /* Maksimal lebar form */
+    }
+
+    .card-header {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      border-radius: 15px 15px 0 0;
+      padding: 20px;
+    }
+
+    .card-body {
+      padding: 30px;
+    }
+
+    .form-title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+
+    .form-group label {
+      color: #ccc;
+    }
+
+    .form-control {
+      border-radius: 10px;
+      padding: 10px;
+      background-color: #333;
+      color: #e0e0e0;
+      border: 1px solid #555;
+    }
+
+    .form-control:focus {
+      border-color: #007bff;
+      background-color: #444;
+      color: #fff;
+    }
+
+    .btn-custom {
+      background-color: #007bff;
+      color: #fff;
+      border-radius: 10px;
+      padding: 12px;
+      width: 100%;
+      border: none;
+      transition: all 0.3s ease;
+      margin-top: 10px;
+    }
+
+    .btn-custom:hover {
+      background-color: #0056b3;
+      cursor: pointer;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .social-icons i {
+      font-size: 24px;
+      cursor: pointer;
+      color: #e0e0e0;
+      transition: color 0.3s ease;
+    }
+
+    .social-icons i:hover {
+      color: #007bff;
+    }
+
+    .toggle-form {
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    .toggle-form a {
+      color: #007bff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .toggle-form a:hover {
+      text-decoration: underline;
+    }
+
+    .checkbox-label {
+      font-size: 14px;
+      color: #ccc;
+    }
+
+    .checkbox-input {
+      margin-right: 10px;
+    }
+
+    .footer-text {
+      text-align: center;
+      font-size: 14px;
+      color: #ccc;
+    }
+
+    /* Hover Effect for Inputs */
+    .form-group input:hover {
+      background-color: #444;
+    }
+
+    .card-footer {
+      text-align: center;
+      padding: 15px;
+      background-color: #333;
+      border-radius: 0 0 15px 15px;
+      color: #ccc;
+    }
+
+    /* Add padding for mobile screens */
+    @media (max-width: 576px) {
+      .card {
+        width: 90%;
+        margin-top: 20px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="card shadow-lg">
+    <div class="card-header">
+      <h3>Welcome</h3>
+    </div>
+    <div class="card-body" id="form-container">
+
+      <!-- Login Form -->
+      <div id="login-form">
+        <h4 class="form-title">Welcome, please let us know who you are</h4>
+        <form>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter your email">
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" placeholder="Enter your password">
+          </div>
+          <div class="social-icons mb-3">
+            <i class="bi bi-google" title="Login with Google"></i>
+            <i class="bi bi-facebook" title="Login with Facebook"></i>
+            <i class="bi bi-telephone" title="Login with Phone"></i>
+          </div>
+          <button type="submit" class="btn-custom">Login</button>
+        </form>
+        <div class="toggle-form">
+          <p>Don't have an account yet? <a href="#" id="show-register">Sign Up</a></p>
+        </div>
+      </div>
+
+      <!-- Register Form -->
+      <div id="register-form" style="display: none;">
+        <h4 class="form-title">Create an Account</h4>
+        <form>
+          <div class="form-group">
+            <label for="first-name">First Name</label>
+            <input type="text" class="form-control" id="first-name" placeholder="Enter your first name">
+          </div>
+          <div class="form-group">
+            <label for="last-name">Last Name</label>
+            <input type="text" class="form-control" id="last-name" placeholder="Enter your last name">
+          </div>
+          <div class="form-group">
+            <label for="display-name">Display Name</label>
+            <input type="text" class="form-control" id="display-name" placeholder="Enter your display name">
+          </div>
+          <div class="form-group">
+            <label for="email-register">Email Address</label>
+            <input type="email" class="form-control" id="email-register" placeholder="Enter your email">
+          </div>
+          <div class="form-group">
+            <label for="password-register">Password</label>
+            <input type="password" class="form-control" id="password-register" placeholder="Enter your password">
+          </div>
+          <div class="form-group">
+            <label for="confirm-password">Confirm Password</label>
+            <input type="password" class="form-control" id="confirm-password" placeholder="Confirm your password">
+          </div>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="agree" required>
+            <label class="form-check-label checkbox-label" for="agree">I agree to the Terms and Conditions</label>
+          </div>
+          <button type="submit" class="btn-custom">Register</button>
+        </form>
+        <div class="toggle-form">
+          <p>Already have an account? <a href="#" id="show-login">Login</a></p>
+        </div>
+      </div>
+
+    </div>
+    <div class="card-footer">
+      <p class="footer-text">© 2024 YourCompany. All rights reserved.</p>
+    </div>
+  </div>
+</div>
+
+<!-- JavaScript to Toggle Forms -->
+<script>
+  document.getElementById("show-register").addEventListener("click", function (event) {
+    event.preventDefault();
+    document.getElementById("login-form").style.display = "none";
+    document.getElementById("register-form").style.display = "block";
+  });
+
+  document.getElementById("show-login").addEventListener("click", function (event) {
+    event.preventDefault();
+    document.getElementById("register-form").style.display = "none";
+    document.getElementById("login-form").style.display = "block";
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
